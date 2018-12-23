@@ -1,0 +1,15 @@
+current directory: /Users/sinadumi/workspace/Books_App/Book_App/vender/bundle/gems/websocket-driver-0.6.5/ext/websocket-driver
+/usr/local/opt/ruby/bin/ruby -r ./siteconf20181223-10539-1jhh9st.rb extconf.rb
+creating Makefile
+
+current directory: /Users/sinadumi/workspace/Books_App/Book_App/vender/bundle/gems/websocket-driver-0.6.5/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /Users/sinadumi/workspace/Books_App/Book_App/vender/bundle/gems/websocket-driver-0.6.5/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.bundle
+
+current directory: /Users/sinadumi/workspace/Books_App/Book_App/vender/bundle/gems/websocket-driver-0.6.5/ext/websocket-driver
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 websocket_mask.bundle ./.gem.20181223-10539-1sx9di7
