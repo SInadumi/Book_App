@@ -9,6 +9,15 @@
   <strong>Name:</strong>
   <%= @author.name %>
 </p>
+<p>
+  「<%=@author.name%>」の著書
+</p>
+<hr />
+<ul>
+  <%=@books.each do |book|%>
+    <li><%=book.title%></li>
+  <%end%>
+</ul>
 
 <%= link_to 'Edit', edit_author_path(@author) %> |
 <%= link_to 'Back', authors_path %>
