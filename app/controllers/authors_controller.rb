@@ -10,7 +10,7 @@ class AuthorsController < ApplicationController
   # GET /authors/1
   # GET /authors/1.json
   def show
-    @books=Book.where(authors_id: params[:id])
+    @books=Book.where(author_id: params[:id])
   end
 
   # GET /authors/new
@@ -55,7 +55,7 @@ class AuthorsController < ApplicationController
   # DELETE /authors/1
   # DELETE /authors/1.json
   def destroy
-    @books=Book.where(authors_id: @author.id).destroy_all
+    @books=Book.where(author_id: @author.id).destroy_all
     @author.destroy
     respond_to do |format|
       format.html { redirect_to authors_url, notice: 'Author was successfully destroyed.' }
@@ -64,7 +64,7 @@ class AuthorsController < ApplicationController
   end
   def hasmany
     #@author=Author.find(id: 1)
-    @books=Book.where(authors_id: params[:id])
+    @books=Book.where(author_id: params[:id])
   end
 
   private
