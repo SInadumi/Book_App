@@ -10,5 +10,14 @@
   <%= @book.published_at %>
 </p>
 
+<h2>「<%=@book.title%>」のレビュー</h2><hr/>
+<ul>
+  <%@reviews.each do |review|%>
+  <li><%=review.body%>(<%=review.updated_at%>)</li>
+  <%end%>
+</ul>
+
+
+
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
