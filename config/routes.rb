@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  devise_for :authors
   get "authors/books/:id/edit" => "books#edit"
   get "/login" => "sessions#new"
   post "/login" => "sessions#create"

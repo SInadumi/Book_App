@@ -9,6 +9,20 @@
   </head>
 
   <body>
+  <header>
+    <nav>
+      <% if author_signed_in? %>
+        <strong><%= link_to(current_author.authorname,pages_show_path) %></strong>
+        <%= link_to("プロフィール変更",edit_author_registration_path) %>
+        <%= link_to("ログアウト",destroy_author_session_path, method: :delete) %>
+      <% else %>
+        <%= link_to("サインアップ",new_author_registration_path)%>
+        <%= link_to("ログイン",new_author_session_path)%>
+      <% end %>
+    </nav>
+  </header>
+    <p class = "notice"><%= notice %></p>
+    <p class = "alert"><%= alert %></p>
     <%= yield %>
     <%=link_to_unless_current("top","/")%>
   </body>
