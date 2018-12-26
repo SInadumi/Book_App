@@ -7,7 +7,7 @@ class Author < ApplicationRecord
   
   has_many :books#, department: :delete_all
   has_secure_password
-  validates :authorname,
+  validates :name,
       presence: true,
       length: {minimum: 3,maximum: 10}
 
