@@ -6,5 +6,6 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       log_in @user
       redirect_to @user
+    end
   end
 end

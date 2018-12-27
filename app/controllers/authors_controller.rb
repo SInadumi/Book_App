@@ -62,20 +62,16 @@ class AuthorsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  def hasmany
-    #@author=Author.find(id: 1)
-    @books=Book.where(author_id: params[:id])
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_author
       @author = Author.find(params[:id])
-    end
+    end 
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def author_params
-      params.require(:author).permit(:gender, :name, :password, :email, :email_confiration, :agreement)
+      params.require(:author).permit(:gender, :name, :password, :age, :email, :email_confiration, :agreement)
     end
 
 

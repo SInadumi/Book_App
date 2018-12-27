@@ -21,6 +21,10 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
+    <%= f.label :age%>
+    <%= f.text_field :age%>
+  </div>
+  <div class="field">
     <%=f.label :password%>
     <%=f.password_field :password%>
   </div>
@@ -36,6 +40,7 @@
     <%=f.label :agreement%><br/>
     <%=f.check_box :agreement%>
   </div>
+  
 
   <div class="actions">
     <%= f.submit %>

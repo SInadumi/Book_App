@@ -3,10 +3,10 @@ class Author < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable,
-  :confirmable, :lockable, :timeoutable, :omniauthable, omniauth_providers: [:twitter]
+  :confirmable, :lockable, :timeoutable#, :omniauthable, omniauth_providers: [:twitter]
   
   has_many :books#, department: :delete_all
-  has_secure_password
+  #has_secure_password
   validates :name,
       presence: true,
       length: {minimum: 3,maximum: 10}

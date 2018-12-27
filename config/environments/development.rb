@@ -54,4 +54,18 @@ Rails.application.configure do
 
   # maier setting
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :letter_opener_web
+  
+  config.action_mailer.smtp_settings = {
+    :enable_starttls_auto => true,
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :domain => 'smtp.gmail.com',
+    :user_name => "inadumi6@gmail.com", #gmailアドレス
+    :password => "booksappex1", #gmailパスワード
+    :authentication => :plain
+  }
+  
 end
