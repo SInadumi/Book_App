@@ -1,14 +1,11 @@
 class Review < ApplicationRecord
-    belongs_to :book
-    belongs_to :user
+    belongs_to :book, optional: true
+    #belongs_to :author, optional: true
 
     validates :book_id,
         presence: true
 
-    validates :user_id,
-        presence: true
-
-    validates :status,
+    validates :title,
         presence: true
 
     validates :body,

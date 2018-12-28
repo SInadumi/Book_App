@@ -4,8 +4,4 @@ class HomeController < ApplicationController
         @authors = Author.all
     end
 
-    def books
-        
-    end
-
 end

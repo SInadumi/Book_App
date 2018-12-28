@@ -1,9 +1,10 @@
 <% if author_signed_in? %>
+  <h1>こんにちは<%= current_author.name %>さん</h1>
   <h2>本を閲覧するrails App</h2>
   <ul>
-    <li>
+    <%# <li>
       <%=link_to("著者の登録","/authors/new")%>
-    </li>
+    <%# </li> %>
     <li>
       <%=link_to("本の登録","/books/new")%>
     </li>

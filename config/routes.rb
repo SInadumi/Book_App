@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   post "/login" => "sessions#create"
   get "/logout" => "sessions#destroy"
 
-  resources :reviews
+  resources :books do
+    resources :reviews
+  end
+ # resources :reviews
   resources :users
   resources :authors
   resources :books
@@ -14,6 +17,6 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
-  root "home#top"
+  root "authors#index"
   
 end

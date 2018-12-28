@@ -51,9 +51,10 @@ ActiveRecord::Schema.define(version: 20181226072027) do
     t.string   "title"
     t.integer  "price"
     t.datetime "published_at"
-    t.string   "author_id"
+    t.integer  "author_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.index ["author_id"], name: "index_books_on_author_id", using: :btree
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -62,6 +63,7 @@ ActiveRecord::Schema.define(version: 20181226072027) do
     t.text     "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_reviews_on_book_id", using: :btree
   end
 
 end

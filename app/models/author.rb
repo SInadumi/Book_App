@@ -5,7 +5,8 @@ class Author < ApplicationRecord
   :recoverable, :rememberable, :trackable, :validatable,
   :confirmable, :lockable, :timeoutable#, :omniauthable, omniauth_providers: [:twitter]
   
-  has_many :books#, department: :delete_all
+  has_many :books
+  #has_many :reviews
   #has_secure_password
   validates :name,
       presence: true,
