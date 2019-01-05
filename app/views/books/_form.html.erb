@@ -12,13 +12,24 @@
   <% end %>
 
   <div class="field">
+  <div class="control">
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: "input is-large" %>
+  </div>
+  </div>
+  
+  <div class="field">
+  <div class="control">
+    <%= f.label :price %>
+    <%= f.text_field :price, class: "input is-large" %>
+  </div>
   </div>
 
   <div class="field">
+  <div class="control">
     <%= f.label :published_at %>
-    <%= f.datetime_select :published_at %>
+    <%= f.datetime_select :published_at, class: "input is-large" %>
+  </div>
   </div>
 
   <div class="actions">

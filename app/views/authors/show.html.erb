@@ -1,25 +1,51 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Gender:</strong>
-  <%= @author.gender %>
-</p>
-<p>
-  <strong>Age:</strong>
-  <%= @author.age%>
-</p>
-<p>
-  <strong>Name:</strong>
-  <%= @author.name %>
-</p>
-<h2>
-  「<%=@author.name%>」さんの著書
-</h2>
-<hr />
-<ul>
-  <%=@books.each do |book|%>
-    <li><%=link_to(book.title, "/books/#{book.id}/edit")%></li>
-  <%end%>
-</ul>
-<%= link_to 'Edit', edit_author_path(@author) %> |
-<%= link_to 'Back', authors_path %>
+<section class="section">
+<div class="container">
+<div class="columns">
+<div class="column is-3">
+  <aside class="is-medium menu">
+    <p class="menu-label">
+      Details
+    </p>
+    <ul class="menu-list fa-1x">
+      <li>
+      <strong>Gender:</strong>
+      <%= @author.gender %>
+      </li>
+      <br />
+      <li>
+      <strong>Age:</strong>
+      <%= @author.age%>
+      </li>
+      <br />
+      <li>
+      <strong>Name:</strong>
+      <%= @author.name %>
+      </li>
+      <br/>
+      <li>
+        <%= link_to 'Back', authors_path %>
+      </li>
+      </ul>
+  </aside>
+</div>
+  <div class="column is-8">
+  <aside class="content is-medium">
+    <h2 class="title">
+    「<%=@author.name%>」さんの著書
+    </h2>
+    <hr />
+    <ul class="menu-list fa-1x">
+      <%=@books.each do |book|%>
+      <div class="box">
+      <%#<li><%=book.title</li>%>
+      <%#<li><%= link_to 'Edit', edit_author_path(@author) </li>%>
+      <li><span><%=link_to( book.title, "/books/#{book.id}/edit")%></span></li>
+      </div>
+      <% end %>
+    </ul>
+  </aside>
+  </div>
+</div>
+</div>
+</section>

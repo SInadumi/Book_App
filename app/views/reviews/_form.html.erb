@@ -10,18 +10,24 @@
       </ul>
     </div>
   <% end %>
+
   <div class="field">
+  <div class="control">
     <%= f.hidden_field :book_id, value: @book.id%>
   </div>
-
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
   </div>
 
   <div class="field">
+  <div class="control">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "input is-large" %>
+  </div>
+  </div>
+  <div class="field">
+  <div class="control">
     <%= f.label :body %>
-    <%= f.text_area :body %>
+    <%= f.text_area :body, class: "input is-large" %>
+  </div>
   </div>
 
   <div class="actions">

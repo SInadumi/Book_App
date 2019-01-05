@@ -1,52 +1,78 @@
-<h2>Sign up</h2>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<section class="hero is-success is-fullheight">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <div class="column is-4 is-offset-4">
+        <%= devise_error_messages! %>
+        <h3 class="title has-text-grey">Sign up</h3>
+        <div class="box">
+        <form>
+          <div class="field">
+          <div class="control">
+          <%#<%= f.label :gender %>
+            <%= f.text_field :gender, class: "input is-large", placeholder: "Gender" %>
+          </div>
+          </div>
+          <div class="field">
+          <div class="control">
+          <%#  <%= f.label :name %>
+            <%= f.text_field :name, class: "input is-large", placeholder: "Name" %>
+          </div>
+          </div>
+          <div class="field">
+          <div class="control">
+            <%#<%= f.label :age%>
+            <%= f.text_field :age, class: "input is-large", placeholder: "Age" %>
+          </div>
+          </div>
+          <div class="field">
+          <div class="control">
+            <%#<%= f.label :email %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input is-large", placeholder: "Email" %>
+          </div>
+          </div>
+          <div class="field">
+          <div class="control">
+            <%#<%=f.label :email_confirmation%>
+            <%=f.text_field :email_confirmation, class: "input is-large", placeholder: "Email-Confirmation" %>
+          </div>
+          </div>
 
-  <div class="field">
-    <%= f.label :gender %>
-    <%= f.text_field :gender %>
-  </div>
+          <div class="field">
+          <div class="control">
+            <%#<%= f.label :password %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password", class: "input is-large", placeholder: "Password" %>
+          </div>
+          </div>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :age%>
-    <%= f.text_field :age%>
-  </div>
+          <div class="field">
+          <div class="control">
+            <%#<%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "input is-large",placeholder: "Password-Confirmation" %>
+          </div>
+          </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <div class="field">
+          <label class="checkbox">
+            <%=f.label :agreement%>
+            <%=f.check_box :agreement%>
+          </label>
+          </div>
+          <div class="actions">
+           <%= f.submit "Sign up", class: "button is-block is-info is-large is-fullwidth" %>
+            </div>
+        </form>
+        <p class="has-text-grey">
+          <%= render "devise/shared/links" %>
+        </p>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%=f.label :email_confirmation%><br/>
-    <%=f.text_field :email_confirmation%>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%=f.label :agreement%><br/>
-    <%=f.check_box :agreement%>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+</section>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%#<%= render "devise/shared/links" %>

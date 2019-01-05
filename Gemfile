@@ -34,6 +34,8 @@ gem 'bcrypt',         '3.1.12'
 #gem 'rubocup'
 gem 'devise'
 gem 'omniauth-twitter'
+gem "bulma-rails"
+gem 'haml-rails'
 
 
 group :development, :test do
