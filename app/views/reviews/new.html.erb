@@ -3,9 +3,7 @@
 　 <div class="container has-text-centered">
       <h1 class="title has-text-gray">「<%= @book.title %>」へのレビュー</h1>
       <div class="box">
-        <form>
           <%= render 'form', review: @review %>
-        </form>
         <%= link_to 'Back', "/books/#{@book.id}", class: "button is-white" %>
       </div>
     </div>
