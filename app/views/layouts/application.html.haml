@@ -1,0 +1,44 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title BookApp
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.6.3/css/all.css", :integrity => "sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/", :rel => "stylesheet"}/
+    %link{:href => "../images/favicon.png", :rel => "icon", :sizes => "32x32", :type => "image/png"}/
+    %link{:href => "https://fonts.googleapis.com/css?family=Open+Sans:300,400,700", :rel => "stylesheet"}/
+    / Bulma Version 0.7.2
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css", :rel => "stylesheet"}/
+    %link{:href => "../css/inbox.css", :rel => "stylesheet", :type => "text/css"}/
+    :css
+      body{
+        background-color:  #eeeeee;
+      }
+  %body
+    %nav.navbar.has-shadow
+      .container
+        .navbar-brand.fa-2x
+          .nav-item
+            %span.icon
+              %i.fas.fa-book-reader
+              = link_to("BookApp","/",class: "navbar-item")
+        #navMenu.navbar-menu
+          .navbar-end
+            .navbar-item.has-dropdown.is-hoverable
+              %a.navbar-link
+                Account
+              .navbar-dropdown
+                - if author_signed_in?
+                  = link_to("プロフィール変更",edit_author_registration_path, class: "navbar-item")
+                  = link_to("ログアウト",destroy_author_session_path, method: :delete, class: "navbar-item")
+                - else
+                  = link_to("サインアップ",new_author_registration_path, class: "navbar-item")
+                  = link_to("ログイン",new_author_session_path, class: "navbar-item")
+    = yield
+    %footer.footer
+      .container
+        .content.has-text-centered
+          %p
+            ©️2018 ShunInadumi

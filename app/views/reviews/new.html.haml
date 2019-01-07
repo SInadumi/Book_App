@@ -1,0 +1,10 @@
+%section.hero.is-success.is-fullheight
+  　
+  .hero-body
+    　
+    .container.has-text-centered
+      %h1.title.has-text-gray
+        「#{@book.title}」へのレビュー
+      .box
+        = render 'form', review: @review
+        = link_to 'Back', "/books/#{@book.id}", class: "button is-white"

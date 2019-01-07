@@ -1,0 +1,9 @@
+%section.hero.is-success.is-fullheight
+  　
+  .hero-body
+    　
+    .container.has-text-centered
+      %h1.title.has-text-gray New Book
+      .box
+        = render 'form', book: @book
+        = link_to 'Back', '/', class: "button is-white"

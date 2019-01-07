@@ -1,0 +1,42 @@
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  %section.hero.is-success.is-fullheight
+    .hero-body
+      .container.has-text-centered
+        .column.is-4.is-offset-4
+          = devise_error_messages!
+          %h3.title.has-text-grey Sign up
+          .box
+            %form
+              .field
+                .control
+                  = f.text_field :gender, class: "input is-large", placeholder: "Gender"
+              .field
+                .control
+                  = f.text_field :name, class: "input is-large", placeholder: "Name"
+              .field
+                .control
+                  = f.text_field :age, class: "input is-large", placeholder: "Age"
+              .field
+                .control
+                  = f.email_field :email, autofocus: true, autocomplete: "email", class: "input is-large", placeholder: "Email"
+              .field
+                .control
+                  = f.text_field :email_confirmation, class: "input is-large", placeholder: "Email-Confirmation"
+              .field
+                .control
+                  - if @minimum_password_length
+                    %em
+                      (#{@minimum_password_length} characters minimum)
+                  %br/
+                  = f.password_field :password, autocomplete: "new-password", class: "input is-large", placeholder: "Password"
+              .field
+                .control
+                  = f.password_field :password_confirmation, autocomplete: "new-password",class: "input is-large",placeholder: "Password-Confirmation"
+              .field
+                %label.checkbox
+                  = f.label :agreement
+                  = f.check_box :agreement
+              .actions
+                = f.submit "Sign up", class: "button is-block is-info is-large is-fullwidth"
+            %p.has-text-grey
+              = render "devise/shared/links"

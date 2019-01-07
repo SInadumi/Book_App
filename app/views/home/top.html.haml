@@ -1,0 +1,11 @@
+- if author_signed_in?
+  %h1
+    こんにちは#{current_author.name}さん
+  %h2 本を閲覧するrails App
+  %ul
+    %li
+      = link_to("本の登録","/books/new")
+    %li
+      = link_to("著者の閲覧","/authors/")
+- else
+  %h1 ログインして下さい

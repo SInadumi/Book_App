@@ -1,0 +1,33 @@
+%p#notice= notice
+%section.section
+  .container
+    .columns
+      .column.is-3
+        %aside.is-medium.menu
+          %p.menu-label
+            Details
+          %ul.menu-list.fa-1x
+            %li
+              %strong Gender:
+              = @author.gender
+            %br/
+            %li
+              %strong Age:
+              = @author.age
+            %br/
+            %li
+              %strong Name:
+              = @author.name
+            %br/
+            %li
+              = link_to 'Back', authors_path
+      .column.is-8
+        %aside.content.is-medium
+          %h2.title
+            「#{@author.name}」さんの著書
+          %hr/
+          %ul.menu-list.fa-1x
+            = @books.each do |book|
+              .box
+                %li
+                  %span= link_to( book.title, "/books/#{book.id}/edit")

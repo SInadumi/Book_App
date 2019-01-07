@@ -1,0 +1,7 @@
+%section.hero.is-success.is-fullheight
+  .hero-body
+    .container.has-text-centered
+      .box
+        %h1.title.has-text-black Editing Book
+        = render 'form', book: @book
+        = link_to 'Back', "/authors/#{@book.author_id}", class: "button is-small is-black is-inverted"

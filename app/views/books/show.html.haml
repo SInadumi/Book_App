@@ -1,0 +1,34 @@
+%p#notice= notice
+%section.section
+  .container
+    .columns
+      .column.is-3
+        %aside.is-medium.menu
+          %p.menu-label
+            Details
+          %ul.menu-list.fa-1x
+            %li
+              %strong Title:
+              = @book.title
+            %li
+              %strong Price
+              = @book.price
+            %li
+              %strong Published at:
+              = @book.published_at
+            %li
+              = link_to("レビューを書く。","/books/#{@book.id}/reviews/new")
+            %li
+              = link_to 'Back', '/'
+      .content.is-8
+        %aside.content.is-medium
+          %h2.title
+            「#{@book.title}」のレビュー
+          %hr/
+          %ul.menu-list.fa-1x
+            - @reviews.each do |review|
+              .box
+                %h4.title.is-3= review.title
+                .message-body
+                  = review.body
+                  (#{review.updated_at})

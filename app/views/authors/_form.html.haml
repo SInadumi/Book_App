@@ -1,0 +1,34 @@
+= form_for(author) do |f|
+  - if author.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(author.errors.count, "error")
+        prohibited this author from being saved:
+      %ul
+        - author.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :gender
+    = f.text_field :gender
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :age
+    = f.text_field :age
+  .field
+    = f.label :password
+    = f.password_field :password
+  .field
+    = f.label :email
+    = f.text_field :email
+  .field
+    = f.label :email_confirmation
+    %br/
+    = f.text_field :email_confirmation
+  .field
+    = f.label :agreement
+    %br/
+    = f.check_box :agreement
+  .actions
+    = f.submit

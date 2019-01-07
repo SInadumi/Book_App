@@ -1,0 +1,23 @@
+= form_for(book) do |f|
+  - if book.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(book.errors.count, "error")
+        prohibited this book from being saved:
+      %ul
+        - book.errors.full_messages.each do |message|
+          %li= message
+  .field
+    .control
+      = f.label :title
+      = f.text_field :title, class: "input is-large"
+  .field
+    .control
+      = f.label :price
+      = f.text_field :price, class: "input is-large"
+  .field
+    .control
+      = f.label :published_at
+      = f.datetime_select :published_at, class: "input is-large"
+  .actions
+    = f.submit
