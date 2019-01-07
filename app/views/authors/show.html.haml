@@ -27,7 +27,7 @@
             「#{@author.name}」さんの著書
           %hr/
           %ul.menu-list.fa-1x
-            = @books.each do |book|
+            - @books.each do |book|
               .box
                 %li
                   %span= link_to( book.title, "/books/#{book.id}/edit")
