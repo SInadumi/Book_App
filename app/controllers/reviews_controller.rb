@@ -26,8 +26,8 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     @review = Review.new(review_params)
-    #@book = Book.find(params[:book_id])
-    #@review.author_id = current_author.id
+    @book = Book.find(params[:book_id])
+    @review.book_id = @book.id
 
     #respond_to do |format|
       if @review.save
