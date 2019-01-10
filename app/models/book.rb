@@ -4,10 +4,12 @@ class Book < ApplicationRecord
     has_many :reviews
 
     validates :title,
-        presence: true
+        presence: true,
+        length: {in:2..20}
 
     validates :price,
-        presence: true
+        presence: true,
+        numericality: {only_integer: true,greater_than: 0}
 
     validates :published_at,
         presence:true
