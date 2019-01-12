@@ -1,7 +1,9 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
     %title BookApp
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -15,21 +17,32 @@
     :css
       body{
         background-color:  #eeeeee;
-        position: absolute;
+        width: auto;
       }
   %body
     %nav.navbar.has-shadow
       .container
-        .navbar-brand.fa-2x
-          .nav-item
-            %span.icon
-              %i.fas.fa-book-reader
-              = link_to("BookApp","/",class: "navbar-item")
-        #navMenu.navbar-menu
-          .navbar-end
-            .navbar-item.has-dropdown.is-hoverable
-              %a.navbar-link
-                Account
+        .navbar-brand
+          = link_to(image_tag('/Title.png'),"/",class: "navbar-item")
+          .navbar-burger.burger
+            #nav-drawer
+              %input#nav-input.nav-unshown{:type => "checkbox"}/
+              %label#nav-open{:for => "nav-input"}
+                %span
+              %label#nav-close.nav-unshown{:for => "nav-input"}
+              #nav-content 
+                %br
+                - if author_signed_in?
+                  = link_to("変更",edit_author_registration_path, class: "navbar-item fas fa-users-cog")
+                  = link_to("",destroy_author_session_path, method: :delete, class: "navbar-item fas fa-sign-out-alt")
+                - else
+                  = link_to("サインアップ",new_author_registration_path, class: "navbar-item fas fa-user-plus")
+                  = link_to("ログイン",new_author_session_path, class: "navbar-item fas fa-sign-in-alt")
+      #navMenu.navbar-menu
+        .navbar-end
+          .navbar-item.has-dropdown.is-hoverable
+            %a.navbar-link
+              Account
               .navbar-dropdown
                 - if author_signed_in?
                   = link_to("プロフィール変更",edit_author_registration_path, class: "navbar-item")
@@ -37,7 +50,64 @@
                 - else
                   = link_to("サインアップ",new_author_registration_path, class: "navbar-item")
                   = link_to("ログイン",new_author_session_path, class: "navbar-item")
+
+
+
+
+    -# %nav.navbar.has-shadow
+    -#   .container
+    -#     .navbar-brand
+    -#       = link_to(image_tag('/Title.png'),"/",class: "navbar-item")
+    -#       .navbar-burger.burger{"data-target" => "navMenu"}
+    -#         %span
+    -#         %span
+    -#         %span
+    -#     #navMenu.navbar-menu
+    -#       .navbar-end
+    -#         .navbar-item.has-dropdown.is-active
+    -#           %a.navbar-link
+    -#             Account
+    -#           .navbar-dropdown
+    -#             %a.navbar-item
+    -#               Dashboard
+    -#             %a.navbar-item
+    -#               Profile
+    -#             %a.navbar-item
+    -#               Settings
+    -#             %hr.navbar-divider/
+    -#             .navbar-item
+    -#               Logout
+
+
+    -# %nav.navbar.has-shadows
+    -#   .container
+    -#     .navbar-brand.fa-2x
+    -#       .nav-item
+    -#         %span.icon
+    -#           %i.fas.fa-book-reader
+    -#           = link_to(image_tag('/Title.png'),"/",class: "navbar-item")
+    -#       .navbar-burger.burger.fa-0.5x{"data-target" => "navMenu"}
+    -#         - if author_signed_in?
+    -#           = link_to("変更",edit_author_registration_path, class: "navbar-item fas fa-users-cog")
+    -#           = link_to("",destroy_author_session_path, method: :delete, class: "navbar-item fas fa-sign-out-alt")
+    -#         - else
+    -#           = link_to("サインアップ",new_author_registration_path, class: "navbar-item fas fa-user-plus")
+    -#           = link_to("ログイン",new_author_session_path, class: "navbar-item fas fa-sign-in-alt")
+    -#     #navMenu.navbar-menu
+    -#       .navbar-end
+    -#         .navbar-item.has-dropdown.is-hoverable
+    -#           %a.navbar-link
+    -#             Account
+    -#           .navbar-dropdown
+    -#             - if author_signed_in?
+    -#               = link_to("プロフィール変更",edit_author_registration_path, class: "navbar-item")
+    -#               = link_to("ログアウト",destroy_author_session_path, method: :delete, class: "navbar-item")
+    -#             - else
+    -#               = link_to("サインアップ",new_author_registration_path, class: "navbar-item")
+    -#               = link_to("ログイン",new_author_session_path, class: "navbar-item")
     = yield
+
+
     %footer.footer
       .container
         .content.has-text-centered
